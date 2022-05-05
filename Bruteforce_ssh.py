@@ -1,5 +1,6 @@
 from ast import Pass
 from distutils.log import error
+from socket import socket
 from turtle import st
 import paramiko 
 from colorama import Back, init, Fore
@@ -30,6 +31,10 @@ def main():
     try: 
         ssh_client.connect(hostname=ip, port=port, username=user, password=Passw)
         print(Fore.GREEN + "Se pudo conectar, la contraseña es: " + Passw)
+    #except socket.timeout: #En el caso de que se tarde en conectar se tira este timeout
+     #   print(Fore.GREEN + "La red {hostname} no esta disponible")
+    except paramiko.AuthenticationException:
+        print(Fore.GREEN + "Las credenciales de authenticacion son incorrectas")
     except ValueError:
         print("Hubo un error al momento de conectarse")
         
