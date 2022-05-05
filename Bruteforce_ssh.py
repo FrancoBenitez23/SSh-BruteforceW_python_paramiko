@@ -5,7 +5,7 @@ import paramiko
 from colorama import Back, init, Fore
 
 init()
-
+"""Colores uwu"""
 GREEN = Fore.GREEN
 RED = Fore.RED
 RESET = Fore.RESET
@@ -29,9 +29,9 @@ def main():
 
     try: 
         ssh_client.connect(hostname=ip, port=port, username=user, password=Passw)
-        print(GREEN.Fore + "Se pudo conectar, la contraseña es: " + Passw)
+        print(Fore.GREEN + "Se pudo conectar, la contraseña es: " + Passw)
     except ValueError:
         print("Hubo un error al momento de conectarse")
-
+        
 
 main()
